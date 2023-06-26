@@ -56,6 +56,23 @@ app.get("/tweets", (req, res) => {
     }
 })
 
+app.get(`/tweets/:username`), (req,res) => {
+    const username = req.params.username;
+    const usertweets = []
+    const finduser = usuarios.findIndex(user => user.username === tweets[i].username)
+    for(let i = 0; i < tweets.length; i++){
+        if(tweets[i].username === username){
+            const data = {
+                username: tweets[i].username,
+                avatar: usuarios[finduser].avatar,
+                tweet: tweets[i].tweet
+            }
+            usertweets.push(data);
+        }
+        else{}
+    }
+    res.sendStatus(200).send(usertweets);
+}
 
 
 
